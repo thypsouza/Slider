@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing:border-box;
+        }
+        body{
+            background-color: #444;
+            display: flex;
+            justify-content: center;
+        }
+        .container{
+            width: 800px;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .slider{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 500ms;
+        }
+        .slider img{
+            flex-shrink: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="slider">
+            <img src="img/img1.jpg" alt="">
+            <img src="img/img2.jpg" alt="">
+            <img src="img/img3.jpg" alt="">
+            <img src="img/img4.jpg" alt="">
+            <img src="img/img5.jpg" alt="">
+        </div>
+    </div>
+    
+    <script>
+        let contador = 1;
+        let slider = document.querySelector('.slider');
+        let imagensTotal = document.querySelectorAll('img').length;
+
+        setInterval(function(){
+            slider.style.transform = `translateX(-${((contador * 100 ) % (imagensTotal * 100))}%)`;
+            contador = contador+1;
+        }, 3000)
+
+
+
+    </script>
+</body>
+</html>
